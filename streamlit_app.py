@@ -84,7 +84,7 @@ with left:
         height=120,
     )
     top_k = st.slider("Sources to retrieve", min_value=1, max_value=5, value=3)
-    ask = st.button("Generate advisory", type="primary", use_container_width=True)
+    ask = st.button("Generate advisory", type="primary", width="stretch")
 
     if ask or question:
         answer, results, used_llm = answer_question(question, top_k=top_k)
@@ -117,4 +117,4 @@ with right:
         a.metric("Test cases", report["total"])
         b.metric("Retrieval", f"{report['retrieval_accuracy']:.0%}")
         c.metric("Grounding", f"{report['grounding_rate']:.0%}")
-        st.dataframe(report["rows"], use_container_width=True, hide_index=True)
+        st.dataframe(report["rows"], width="stretch", hide_index=True)
